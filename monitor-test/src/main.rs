@@ -43,7 +43,7 @@ fn main() {
 
         let process_id = std::process::id() as i32;
         system.refresh_process(process_id);
-        system.refresh_cpu();
+        // system.refresh_cpu();
 
         let cpu_usage = system.get_process(process_id).unwrap().cpu_usage();
 
