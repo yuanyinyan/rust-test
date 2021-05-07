@@ -41,9 +41,10 @@ fn main() {
         let usage_p = stat_p.cpu().unwrap() * 100f64;
         let _usage_t = stat_t.cpu().unwrap() * 100f64;
 
+        system.refresh_cpu();
+
         let process_id = std::process::id() as i32;
         system.refresh_process(process_id);
-        system.refresh_cpu();
 
         let cpu_usage = system.get_process(process_id).unwrap().cpu_usage();
 
