@@ -44,12 +44,22 @@ fn main() {
         let process_id = std::process::id() as i32;
         system.refresh_process(process_id);
         // system.refresh_cpu();
+        system.refresh_memory();
 
         let cpu_usage = system.get_process(process_id).unwrap().cpu_usage();
 
+        let load_avg = system.get_load_average();
         println!(
-            "cpu usage: [perf_monitor, sysinfo] = [{:.2}%, {:.2}%]",
-            usage_p, cpu_usage
+            "cpu usage: [perf_monitor, sysinfo] = [{:.2}%, {:.2}%], \
+            load.1 = {:.2}, load.5 = {:.2}, load.15 = {:.2}, \
+            used_memory = {:.2}, used_swap = {:.2}",
+            usage_p,
+            cpu_usage,
+            load_avg.one,
+            load_avg.five,
+            load_avg.fifteen,
+            system.get_used_memory(),
+            system.get_used_swap()
         );
 
         // println!(
