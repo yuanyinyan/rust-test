@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "r2d2-test",
+    "all-test",
+    "mysql_async-test",
+    "channel-test",
+    "monitor-test",
+    "sysinfo-test",
+]
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+incremental = false

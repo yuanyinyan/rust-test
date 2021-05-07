@@ -1,0 +1,11 @@
+[package]
+name = "monitor-test"
+version = "0.1.0"
+authors = ["袁殷 <2212079150@qq.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+perf_monitor = "0.2"
+sysinfo = "0.17.2"
